@@ -753,7 +753,6 @@ class Component(TemplateView):
         # try local cache
         cached_component = cls.from_local_cache(component_cache_key)
         if cached_component:
-            print(f"get {component_id}")
             return cached_component
         
         # try django cache  (DISABLED FOR NOW)
@@ -762,7 +761,6 @@ class Component(TemplateView):
         #     return cached_component
         
         # create new one
-        print(f"create {component_id}")
         return cls.create(
             component_id=component_id,
             component_name=component_name,

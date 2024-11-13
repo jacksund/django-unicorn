@@ -153,10 +153,7 @@ class ComponentRequest:
         Updates properties and applies all actions to the component, and
         then returns the updated component
         """
-        # import pprint
-        # pprint.pprint(self.data)
-        # breakpoint()
-        # bug-check
+
         if self.has_been_applied:
             raise Exception(
                 "This ComponentRequest was already applied to a Component. "
@@ -176,10 +173,9 @@ class ComponentRequest:
             # know that the next child component call should stick to what we
             # have cached locally (w. past changes) rather than what JS had
             # cached remotely (wo. past changes)
-            print("BUG-FIX: skip updates")
             pass
         else:
-            print("updating w. request.data")
+            # Normally done in all cases
             for property_name, property_value in self.data.items():
                 set_property_from_data(
                     updated_component,
